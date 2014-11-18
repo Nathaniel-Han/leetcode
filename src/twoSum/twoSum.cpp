@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
 public:
+	// use hashmap to index array elements
     vector<int> twoSum(vector<int> &numbers, int target) {
         vector<int> answer;
         map<int, int> m_record;

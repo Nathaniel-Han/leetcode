@@ -11,11 +11,11 @@ public:
 		int next; // for even case
 		bool isEven;
 		if ((m + n) % 2 != 0) {
-			// odd
+			// odd case
 			mid_index = (m + n) / 2;
 			isEven = false;
 		} else {
-			// even
+			// even case
 			mid_index = (m + n) / 2 - 1;
 			isEven = true;
 		}
@@ -31,6 +31,7 @@ public:
 			else {
 				a_pos++;
 				total++;
+				// in case that total exceeds mid_index, not use 'total += 2'
 				if(total == mid_index)
 					break;
 				b_pos++;
@@ -61,7 +62,7 @@ public:
 				}
 			}
 		}
-
+		// array A is too short
 		else if (a_pos == m) {
 			b_pos += (mid_index - total);
 			answer = B[b_pos];
@@ -71,7 +72,9 @@ public:
 				answer = (answer + next) / 2;
 			}
 
-		} else {
+		}
+		// array B is too short
+		else {
 			a_pos += (mid_index - total);
 			answer = A[a_pos];
 
