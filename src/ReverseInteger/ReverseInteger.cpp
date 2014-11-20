@@ -10,13 +10,18 @@ using namespace std;
 
 class Solution {
 public:
+	// faster implementation, but has an issue.
+	
+	// issue: If the converted value would be out of 
+	//        the range of representable values by an int, 
+	//        it causes undefined behavior
 	int reverse(int x) {
 		if (x == 0)
 			return 0;
 
         int answer;
 		bool isPositive;
-		stack<int> helper;
+		
 
 		if (x >= 0) {
 			isPositive = true;
@@ -28,10 +33,8 @@ public:
 				return 0;
 		}
 
-
 		int exp = log(x) / log(10);
-
-
+		stack<int> helper;
 		char buf[exp + 2];
 		string rev;
 		sprintf(buf, "%d", x);
