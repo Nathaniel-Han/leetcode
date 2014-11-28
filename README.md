@@ -1,3 +1,3 @@
 leetcode
 ========
-This is my C++ solution for problems in [LeetCode](https://oj.leetcode.com/problems/).
+This is my C++ solutions for problems in [LeetCode](https://oj.leetcode.com/problems/).
