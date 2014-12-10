@@ -1,5 +1,8 @@
 /* main idea : utilization of two pointers */
-/* always move a step for the lower index because it is the determinant of maxArea*/
+
+/* Always move a step for the lower index because it is the determinant of maxArea;*/
+/* Change the high index obviously will not influnce the maxArea*/
+
 class Solution {
 public:
 	
