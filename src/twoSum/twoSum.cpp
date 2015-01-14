@@ -8,8 +8,8 @@ public:
 	// use hashmap to index array elements
     vector<int> twoSum(vector<int> &numbers, int target) {
         vector<int> answer;
-        map<int, int> m_record;
-        map<int, int>::iterator it;
+        unordered_map<int, int> m_record;
+        unordered_map<int, int>::iterator it;
 
         for(int i=0;i<numbers.size();i++){
         	m_record[numbers[i]] = i;
