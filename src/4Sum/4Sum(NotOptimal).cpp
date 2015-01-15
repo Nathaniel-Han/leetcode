@@ -13,7 +13,11 @@ using namespace std;
 
 class Solution {
 public:
+  /* A failure trial to transform 4Sum to 2Sum problem.
+	   It is not good to generate pairs one by one and then feed the pairs
+		 to 2Sum procedures because there will be too many pairs*/
 
+	/* The result of this solution on leetcode is Time Limits Exceeded*/
 	vector<vector<int> > fourSum(vector<int> &num, int target) {
 
 		vector<vector<int> > answer;
@@ -21,7 +25,7 @@ public:
 		if (num.size() < 4)
 			return answer;
 
-		vector<int> quad(4, 0); // four elements
+		vector<int> quad(4);
 
 		vector<pair<int, int> > pairs;
 
@@ -31,6 +35,7 @@ public:
 
 		int size = num.size();
 
+		// generate pairs one by one
 		for (int i = 0; i < size; i++) {
 			for (int j = i + 1; j < size; j++) {
 				pairs.push_back(make_pair(i, j));
@@ -38,8 +43,8 @@ public:
 			}
 		}
 
+		// Get answers of pairs from twoSum procedure
 		vector<vector<int> > twoSumAns = twoSum(twoSums, target);
-
 
 		int a1, b1,a2,b2;
 
@@ -49,6 +54,7 @@ public:
 					pairs[twoSumAns[i][1]].first, b2 =
 					pairs[twoSumAns[i][1]].second;
 
+			// Examine Index Duplication
 			if (a1 != a2 && a1 != b2 && b1 != a2 && b1 != b2) {
 
 				quad[0] = num[a1];
@@ -57,6 +63,7 @@ public:
 				quad[3] = num[b2];
 				sort(quad.begin(), quad.end());
 
+				//Examine Quadruplet Duplication
 				string str;
 				str += quad[0];
 				str += quad[1];
@@ -66,18 +73,8 @@ public:
 					answer.push_back(quad);
 					test.insert(str);
 				}
-
-//				answer.push_back(quad);
-//				test.insert(quad);
 			}
 		}
-
-//		for (auto it = test.begin(); it != test.end(); it++)
-//			answer.push_back(*it);
-
-
-//		answer.erase(unique(answer.begin(), answer.end()));
-//		cout << (clock() - start) / clock_t(1000) << "ms" << endl;
 
 		return answer;
 
@@ -86,6 +83,7 @@ public:
 	vector<vector<int> > twoSum(vector<int> &numbers, int target) {
 		vector<vector<int> > answer;
 		vector<int> candidate(2, 0);
+		// Use multimap instead of map because it could have duplicate element
 		unordered_multimap<int, int> m_record;
 		typedef unordered_multimap<int, int>::iterator iterator;
 		iterator iter ;

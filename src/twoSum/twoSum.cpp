@@ -1,11 +1,12 @@
 #include<iostream>
 #include<vector>
-#include<map>
+#include<unordered_map>
 using namespace std;
 
 class Solution {
 public:
 	// use hashmap to index array elements
+  // must use unordered_map because it is an implementation of real hashmap
     vector<int> twoSum(vector<int> &numbers, int target) {
         vector<int> answer;
         unordered_map<int, int> m_record;
