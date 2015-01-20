@@ -34,12 +34,11 @@ public:
 	}
 
 	vector<string> letterCombinations(string digits) {
-		vector<string> answer;
-
 		if (digits.length() == 0) {
-			answer.push_back("");
-			return answer;
+			return vector<string>(1, "");
 		}
+
+		vector<string> answer;
 
 		string str = dict[digits[0] - 48];
 		if (digits.length() == 1) {
