@@ -18,7 +18,7 @@ public:
 		qsort(A, n, sizeof(int), compare_ints);
 
 		int low = 0, high = n - 1, mid;
-		while (low < high) {
+		while (low <= high) {
 			mid = low + ((high - low) >> 1);
 			if (elem < A[mid]) {
 				high = mid - 1;
