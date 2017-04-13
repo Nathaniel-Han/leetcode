@@ -14,7 +14,7 @@ public:
         sort(tmp.begin(), tmp.end());
         for(int i=0;i<sz; i++) helper[tmp[i]]=i+1;
 
-        vector<int> tree(sz+2, 0);
+        vector<int> tree(sz+1, 0);
 
         for(int i=sz-1; i>=0; i--){
             count.insert(count.begin(), get(helper[nums[i]]-1, tree));
